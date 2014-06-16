@@ -1,4 +1,4 @@
-vehicleModelIdentifier = {
+local vehicleModelIdentifier = {
     [400] = "LANDSTAL",
     [401] = "BRAVURA",
     [402] = "BUFFALO",
@@ -214,11 +214,16 @@ vehicleModelIdentifier = {
 }
 
 -- Conform the above table to the opposite too
-vehicleIdentifierModels = {}
-for i,v in ipairs ( vehicleModelIdentifier ) do
+local vehicleIdentifierModels = {}
+for i,v in ipairs(vehicleModelIdentifier) do
     if not vehicleIdentifierModels[v] then
         vehicleIdentifierModels[v] = {}
     end
     
-    table.insert ( vehicleIdentifierModels[v] , i )
+    table.insert(vehicleIdentifierModels[v] , i)
 end
+
+Data.vehicle = {
+	nameFromModel = vehicleModelIdentifier,
+	modelFromName = vehicleIdentifierModels
+}
